@@ -112,9 +112,31 @@ class SingleLinkList(object):
 
 	def  remove(self,item):
 		# 遍历的时候移除一个
+		# 要注意考虑头尾
+		cur = self.__head
+		pre=None
+		while cur!=None:
+			if(cur.elem==item):
+				if cur==self.__head:
+					self.__head=cur.next
+				else:
+					pre.next=cur.next
+				break
+			else:
+				pre=cur
+				cur=cur.next
+
+		return False
+
 
 	def search(self,item):
 		## 遍历的时候加一个比对的步骤
+		cur = self.__head
+		while cur!=None:
+			if(cur.elem==item):
+				return True
+			cur=cur.next
+		return False
 
 
 
