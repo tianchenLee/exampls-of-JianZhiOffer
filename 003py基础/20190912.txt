@@ -1,0 +1,96 @@
+20190912.txt
+1、python数据结构的可变与不变
+	可变：list dict set
+	不变：number string tuple
+
+2、copy and deep copy
+	简单的object
+		（如 number string tuple）无区别，原来值的改变互相不影响；
+	复杂的object：
+		copy.copy() 子list依然是原来的；
+		copy.deepcpoy() 完全拷贝，子list也是自己的；
+
+3、对于全局定义的变量，在函数内部可以引用但是不能修改；
+
+4、python变量没有特定类型不需要事先声明，在使用之前赋值之后变量被创建，并且根据赋值语句决定其类型；
+
+
+5、读取文件：
+	read()读整个文件；readline()读一行；readlines()读所有行到list
+
+
+6、py 逻辑运算符
+	and 同真取最后一个真，有假取第一个假；
+	or 	同假取最后一个假，有真取第一个真；
+	not 取反；
+
+
+7、isinstance（object，classinfo），用于判断object是否是classinfo的一个实例，或者object是否是classinfo类的子类的一个实例，如果是返回True. issubclass（class，classinfo），用于判断class是否是classinfo类的子类，如果是返回True.
+
+
+8、python的实数和虚数
+	1 虚数不能单独存在，它们总是和一个值为 0.0 的实数部分一起来构成一个复数。
+	2 复数由实数部分和虚数部分构成
+	3 虚数可以通过real+imagj，即带有后缀j或J的浮点数，或者函数complex(real,imag)来指定
+	4 实数部分和虚数部分都是浮点数
+	5 虚数部分必须有后缀 j 或 J
+
+
+9、try except else finally
+	程序异常执行except
+	程序正常执行try和else
+	无论程序正常执行还是出现异常都执行finally
+
+
+10、字典的键值必须是不可变类型，如数字，字符串，元组，而列表是可变类型。
+
+
+11、
+	__init__是当实例对象创建完成后被调用的，然后设置对象属性的一些初始值。
+	__new__是在实例创建之前被调用的，因为它的任务就是创建实例然后返回该实例，是个静态方法。
+	即，__new__在__init__之前被调用，__new__的返回值（实例）将传递给__init__方法的第一个参数，然后__init__给这个实例设置一些参数。
+
+12、"r","w","a","rb","wb","ab"：指定对文件打开方式即文件内容操作方式，即只读，可写，追加，二进制读，二进制写，二进制追加
+
+
+13、自己运行自己的程序，__name__ 即为__main__
+当程序当做脚本被别人调用运行时，其__name__ 为自己的模块名称，这里的print_func即被导入到print_module中当做脚本被运行时，则print_func的__name__即变为其自身的模块名。
+
+
+14、random.random()生成0和1之间的随机浮点数float
+
+
+15、str.endswith(suffix[, start[, end]]) 用于判断字符串是否以指定后缀结尾，如果以指定后缀结尾返回True，否则返回False。
+可选参数"start"与"end"为检索字符串的开始与结束位置。
+
+
+16、列表list=[]
+	tuple=()，Python 中的 tuple 结构为 “不可变序列”，用小括号表示。为了区别数学中表示优先级的小括号，当 tuple 中只含一个元素时，需要在元素后加上逗号。否则会被认为是int
+	dict={}
+	set=set()
+
+
+17、Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。
+
+
+
+18、sys.argv是命令参数表，包括文件名
+argv[0]: 【path】/my.py
+argv[1]: v1
+argv[2]: v2
+
+
+
+
+19、python中主要存在四种命名方式：
+	1、object #公用方法
+	2、_object #半保护
+	                 #被看作是“protect”，意思是只有类对象和子类对象自己能访问到这些变量，
+	                  在模块或类外不可以使用，不能用’from module import *’导入。
+	                #__object 是为了避免与子类的方法名称冲突， 对于该标识符描述的方法，父
+	                  类的方法不能轻易地被子类的方法覆盖，他们的名字实际上是
+	                  _classname__methodname。
+	3、_ _ object  #全私有，全保护
+	                       #私有成员“private”，意思是只有类对象自己能访问，连子类对象也不能访
+	                          问到这个数据，不能用’from module import *’导入。
+	4、_ _ object_ _     #内建方法，用户不要这样定义
